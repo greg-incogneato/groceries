@@ -1,0 +1,74 @@
+rules:
+  - category: Household
+    subcategory: Cleaning & Paper
+    patterns:
+      - "paper towel"
+      - "toilet paper"
+      - "napkin"
+      - "tissue"
+      - "detergent"
+      - "dish soap"
+      - "laundry"
+      - "bleach"
+      - "cleaner"
+  - category: Household
+    subcategory: Personal Care
+    patterns:
+      - "shampoo"
+      - "conditioner"
+      - "soap"
+      - "toothpaste"
+      - "deodorant"
+      - "lotion"
+      - "razor"
+  - category: Household
+    subcategory: Baby
+    patterns:
+      - "diaper"
+      - "wipes"
+      - "formula"
+      - "baby"
+  - category: Groceries
+    subcategory: Snacks
+    patterns:
+      - "chips"
+      - "cracker"
+      - "popcorn"
+      - "pretzel"
+      - "cookie"
+      - "candy"
+      - "snack"
+  - category: Groceries
+    subcategory: Beverages
+    patterns:
+      - "soda"
+      - "sparkling water"
+      - "juice"
+      - "tea"
+      - "coffee"
+      - "water"
+  - category: Groceries
+    subcategory: Prepared Foods
+    patterns:
+      - "prepared"
+      - "ready to eat"
+      - "meal"
+      - "salad"
+      - "sandwich"
+  - category: Household
+    subcategory: Pet Supplies
+    patterns:
+      - "pet"
+      - "dog"
+      - "cat"
+      - "litter"
+      - "kibble"
+  - category: Alcohol
+    subcategory: Alcohol
+    patterns:
+      - "wine"
+      - "beer"
+      - "vodka"
+      - "whiskey"
+      - "rum"
+      - "tequila"

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4a7c7e">
+  <title>Weekly Reflection</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-title">
+        <span class="logo">&#9632;</span>
+        <span>Weekly Reflection</span>
+      </div>
+      <div class="header-streak" id="streak-display" title="Your current streak"></div>
+    </div>
+    <nav>
+      <button class="nav-btn active" id="nav-form" data-view="view-form">This Week</button>
+      <button class="nav-btn" id="nav-history" data-view="view-history">History</button>
+      <button class="nav-btn" id="nav-insights" data-view="view-insights">Insights</button>
+    </nav>
+  </header>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <div id="bookmark-banner" class="bookmark-banner hidden">
+    Bookmark this page so it's one click away next week. &#x1F516;
+    <button id="dismiss-bookmark">Got it</button>
+  </div>
+
+  <main>
+    <!-- Form view -->
+    <section id="view-form" class="view">
+      <h2 id="form-week-label">Week of —</h2>
+      <p class="form-hint">Fill in as much or as little as you like. Partial entries are great.</p>
+      <form id="reflection-form" novalidate>
+        <div class="field">
+          <label for="f-wentWell">What went well this week?</label>
+          <textarea id="f-wentWell" name="wentWell" rows="3" placeholder="Wins, progress, things that clicked…"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-blocked">What was blocked or harder than expected?</label>
+          <textarea id="f-blocked" name="blocked" rows="3" placeholder="Friction, surprises, slow-downs…"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-differently">What would you do differently?</label>
+          <textarea id="f-differently" name="differently" rows="3" placeholder="Lessons, hindsight, adjustments…"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-proud">What are you most proud of?</label>
+          <textarea id="f-proud" name="proud" rows="3" placeholder="A moment worth remembering…"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-nextWeekFocus">What's your focus or intention for next week?</label>
+          <textarea id="f-nextWeekFocus" name="nextWeekFocus" rows="3" placeholder="One thing to hold onto…"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" id="btn-save">Save what you have</button>
+          <button type="button" class="btn-ghost" id="btn-delete" style="display:none;color:#c0392b">Delete entry</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- History view -->
+    <section id="view-history" class="view hidden">
+      <h2>Past Reflections</h2>
+      <div id="history-list"></div>
+      <p id="history-empty" class="empty-state hidden">No reflections yet. Start with this week!</p>
+    </section>
+
+    <!-- Insights view -->
+    <section id="view-insights" class="view hidden">
+      <h2>Insights</h2>
+
+      <div class="insights-grid">
+        <div class="insight-card" id="ins-streak">
+          <div class="insight-label">Current streak</div>
+          <div class="insight-value" id="ins-streak-val">—</div>
+        </div>
+        <div class="insight-card" id="ins-consistency">
+          <div class="insight-label">Last 12 weeks</div>
+          <div class="insight-value" id="ins-consistency-val">—</div>
+        </div>
+      </div>
+
+      <div class="heatmap-section">
+        <h3>12-Week Heatmap</h3>
+        <div id="heatmap" class="heatmap"></div>
+      </div>
+
+      <div id="lookback-section" class="lookback hidden">
+        <h3>This time last month</h3>
+        <div id="lookback-card" class="card"></div>
+      </div>
+
+      <div class="word-freq-row">
+        <div class="word-freq-col">
+          <h3>Recurring wins</h3>
+          <ul id="freq-wins" class="freq-list"></ul>
+        </div>
+        <div class="word-freq-col">
+          <h3>Recurring blockers</h3>
+          <ul id="freq-blocked" class="freq-list"></ul>
+        </div>
+      </div>
+
+      <p id="insights-empty" class="empty-state hidden">Add a few reflections and insights will appear here.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
